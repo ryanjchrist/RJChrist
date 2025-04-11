@@ -346,6 +346,10 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.menu-toggle {
+    display: none;
+}
+
 /* Updated Mobile Navigation Styles */
 @media (max-width: 768px) {
     header .container {

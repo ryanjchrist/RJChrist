@@ -228,42 +228,46 @@ nav ul li a:hover {
 }
 
 /* Contact Section */
-.contact-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 50px;
-}
-
-.contact-info {
-    background: var(--primary-color);
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-}
-
-.contact-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.contact-info p {
-    margin-bottom: 15px;
+.contact-container-centered {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.contact-info i {
+.contact-info-centered {
+    background: var(--primary-color);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-info-centered h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.contact-info-centered p {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info-centered i {
     margin-right: 10px;
     color: var(--accent-color);
 }
 
-.contact-info a {
+.contact-info-centered a {
     color: white;
 }
 
 .business-hours {
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
 .business-hours h4 {
@@ -272,29 +276,20 @@ nav ul li a:hover {
     color: white;
 }
 
-.contact-form {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.social-links-centered {
+    margin-top: 30px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.social-links-centered a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: inherit;
-}
-
-.form-group textarea {
-    resize: vertical;
+.social-links-centered a:hover {
+    color: var(--accent-color);
 }
 
 /* Footer */
@@ -351,57 +346,81 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Styles */
+/* Updated Mobile Navigation Styles */
 @media (max-width: 768px) {
     header .container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    nav {
+        position: relative;
     }
 
     nav ul {
-        margin: 20px 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        margin: 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav ul.show {
+        max-height: 500px; /* Adjust based on your content */
     }
 
     nav ul li {
-        margin: 0 10px;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
     }
 
-    .hero h2 {
-        font-size: 2.2rem;
+    nav ul li a {
+        display: block;
+        padding: 10px;
     }
 
-    .section-title {
-        font-size: 2rem;
+    .header-contact {
+        margin-top: 0;
+    }
+
+    /* Mobile Menu Toggle Button */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        cursor: pointer;
+        padding: 5px 10px;
+    }
+
+    .logo {
+        text-align: left;
     }
 }
 
 @media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
+    .logo h1 {
+        font-size: 1.5rem;
     }
-
-    nav ul li {
-        margin: 5px 0;
+    
+    .logo p {
+        font-size: 0.8rem;
     }
-
-    .header-contact {
-        margin-top: 15px;
-    }
-
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .btn-large {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-
-    .section-padding {
-        padding: 50px 0;
+    
+    .header-contact .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 }

@@ -28,6 +28,14 @@
             </div>
         </div>
     </header>
+    <header>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="container">
+            <!-- Rest of your header content -->
+        </div>
+    </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
@@ -100,8 +108,8 @@
     <section id="contact" class="contact section-padding">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <div class="contact-container">
-                <div class="contact-info">
+            <div class="contact-container-centered">
+                <div class="contact-info-centered">
                     <h3>Get in Touch</h3>
                     <p><i class="fas fa-phone"></i> <a href="tel:+15853922687">(585) 392-2687</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> Hilton, NY 14468</p>
@@ -112,36 +120,6 @@
                         <p>Sunday: Closed</p>
                     </div>
                 </div>
-                <!--
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Your Phone">
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option value="">Select a Service</option>
-                                <option value="excavation">Excavation</option>
-                                <option value="paving">Paving</option>
-                                <option value="residential">Residential Services</option>
-                                <option value="commercial">Commercial Services</option>
-                                <option value="drainage">Drainage Solutions</option>
-                                <option value="snow">Snow Removal</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>-->
             </div>
         </div>
     </section>
@@ -182,5 +160,25 @@
             </div>
         </div>
     </footer>
+    <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
+    
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('show');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+    </script>
 </body>
 </html>

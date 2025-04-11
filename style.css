@@ -350,55 +350,14 @@ footer {
     display: none;
 }
 
-/* Updated Mobile Navigation Styles */
+/* Mobile Menu Styles */
 @media (max-width: 768px) {
-    header .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
+    /* Hide regular navigation */
+    .nav-links {
+        display: none;
     }
-
-    nav {
-        position: relative;
-    }
-
-    nav ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        margin: 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    nav ul.show {
-        max-height: 500px; /* Adjust based on your content */
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px;
-    }
-
-    .header-contact {
-        margin-top: 0;
-    }
-
-    /* Mobile Menu Toggle Button */
+    
+    /* Show mobile toggle button */
     .menu-toggle {
         display: block;
         background: none;
@@ -407,24 +366,57 @@ footer {
         color: var(--primary-color);
         cursor: pointer;
         padding: 5px 10px;
+        margin-left: auto;
     }
-
+    
+    /* Mobile menu when visible */
+    .nav-links.mobile-visible {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        left: 0;
+        top: 80px; /* Adjust based on header height */
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 10px;
+    }
+    
+    /* Adjust header layout */
+    header .container {
+        flex-wrap: wrap;
+        padding: 15px;
+        position: relative; /* Needed for absolute positioning of dropdown */
+    }
+    
     .logo {
-        text-align: left;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo h1 {
-        font-size: 1.5rem;
+        order: 1;
     }
     
-    .logo p {
-        font-size: 0.8rem;
+    .menu-toggle {
+        order: 2;
     }
     
-    .header-contact .btn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+    nav {
+        order: 3;
+        width: 100%;
+    }
+    
+    .header-contact {
+        order: 4;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
     }
 }

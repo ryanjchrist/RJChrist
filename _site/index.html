@@ -87,25 +87,58 @@
         <div class="container">
             <h2 class="section-title">Our Work</h2>
             <div class="gallery-grid">
+    
                 <div class="gallery-item">
-                    <img src="images/excavation.jpg" alt="Excavation Project">
+                    <img src="images/Driveway0.JPG" alt="Asphalt Paving Project" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Asphalt Paving</h3>
+                        <p>Fresh asphalt being laid for a smooth, durable parking lot surface</p>
+                    </div>
+                </div>
+    
+                <div class="gallery-item">
+                    <img src="images/excavation.jpg" alt="Excavation Site Preparation" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Site Preparation</h3>
+                        <p>Excavation, stone, and grading work</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/paving.JPG" alt="Paving Project">
+                    <img src="images/Driveway1.JPG" alt="Asphalt Paving Project" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Asphalt Paving</h3>
+                        <p>Asphalt Driveway</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300?text=Residential+Driveway" alt="Residential Driveway">
+                    <img src="images/Driveway2.JPG" alt="Asphalt Paving Project" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Asphalt Paving</h3>
+                        <p>Asphalt Driveway</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300?text=Commercial+Parking+Lot" alt="Commercial Parking Lot">
+                    <img src="images/Aggregate0.jpg" alt="Recycled Materials" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Aggregate Materials</h3>
+                        <p>2"- crusher-run and asphalt mix available for pick-up or delivery. Top soil also available.</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300?text=Grading+Work" alt="Grading Work">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300?text=Drainage+Installation" alt="Drainage Installation">
+                    <img src="images/Aggregate1.jpg" alt="Recycled Materials" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Aggregate Materials</h3>
+                        <p>2"- crusher-run and asphalt mix available for pick-up or delivery. Top soil also available.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
         </div>
     </section>
 
@@ -191,6 +224,40 @@
                     menuToggle.querySelector('i').classList.remove('fa-times');
                     menuToggle.querySelector('i').classList.add('fa-bars');
                 });
+            });
+        });
+    </script>
+    <script>
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const closeBtn = document.querySelector('.close-btn');
+    
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').src;
+                    const caption = this.querySelector('.gallery-caption').innerHTML;
+                    
+                    lightboxImg.src = imgSrc;
+                    lightboxCaption.innerHTML = caption;
+                    lightbox.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+    
+            closeBtn.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+    
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             });
         });
     </script>

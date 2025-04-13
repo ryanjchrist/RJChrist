@@ -369,6 +369,39 @@ nav ul li a:hover {
 }
 
 /* Footer */
+.footer-contact p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-contact a {
+    color: var(--light-color);
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-contact {
+        margin-top: 20px;
+    }
+    
+    .footer-contact p {
+        justify-content: center;
+    }
+}
+
 footer {
     background: var(--dark-color);
     color: white;
